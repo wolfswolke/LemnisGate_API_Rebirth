@@ -321,4 +321,31 @@ def get_friend_leaderboard():
     data_statistic_name = data.get("StatisticName")
     # todo get leaderboard around the user
     # 5 above, USER, 4 below
-    return jsonify({"code": 200, "status": "OK"}), 200
+    playfab_id = session["user"]
+    data = mongo.get_data_with_list(playfab_id, ["steam_id", "display_name"])
+    return jsonify({
+        "code": 200,
+        "status": "OK",
+        "data": {
+            "Leaderboard": [
+                {
+                    "PlayFabId": playfab_id,
+                    "StatValue": 849,
+                    "Position": 0,
+                    "Profile": {
+                        "PublisherId": "114DBB6D73071B8E",
+                        "TitleId": "FFFB",
+                        "PlayerId": playfab_id,
+                        "LinkedAccounts": [
+                            {
+                                "Platform": "Steam",
+                                "PlatformUserId": data["steam_id"],
+                                "Username": data["display_name"]
+                            }
+                        ]
+                    }
+                }
+            ],
+            "Version": 0
+        }
+    }), 200
