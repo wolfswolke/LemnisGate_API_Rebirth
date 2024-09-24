@@ -1,0 +1,8 @@
+bleach>=6.1.0
+PyYAML>=6.0.2
+graypy>=2.1.0
+colorlog>=6.8.2
+pymongo>=4.8.0
+requests>=2.32.3
+waitress>=3.0.0
+Flask>=3.0.3
