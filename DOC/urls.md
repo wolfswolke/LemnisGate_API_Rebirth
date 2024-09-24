@@ -20,3 +20,12 @@ This URL has not been patched.
 This is the FLEET service they used. (I believe Dedicated Servers)
 - https://qos.multiplay.com/v1/fleets/6b8c79a8-f2ca-11ea-bd9d-0242ac110003/servers"
 - https://qos.multiplay.com/v1/fleets/9cdbc466-0e52-4c6c-9525-52354f45f81d/servers"
+
+## Watch Service
+This URL has not been patched.
+
+This URL gets called with a JOIN CODE when you go to PLAY and enter a code at the bottom.
+
+From what the game explains it is a Private Match Making between the people who enter the same Join Code.
+
+- https://genial-upgrade-283917.uc.r.appspot.com/watchserver/find?code=
