@@ -52,6 +52,11 @@ class Mongo:
             'objectivesDestroyed_PROD': None,
             'LastLoginTime': ""
         }
+        self.leaderboard_schema = {
+            "PlayerId": "",
+            "Position": 0,
+            "StatValue": 0,
+        }
 
     def setup(self, server, db, collection):
         self.dyn_server = server
