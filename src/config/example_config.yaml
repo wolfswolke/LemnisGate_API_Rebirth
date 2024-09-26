@@ -1,0 +1,21 @@
+global:
+  version: 0.0.1
+  name: LemnisGate_API
+local_ips:
+  - 192.168.1.111
+mongodb:
+  host: mongodb://IP:27017/
+  db: lemnis_db
+  db_dev: lemnis_db_dev
+  user_collection: user_collection
+steam:
+  api_key: 11111111111111111111111111111111
+  app_id: 950180
+graylog:
+  use: true
+  host: 192.168.1.111
+webhooks:
+  discord:
+    use: false
+    urls:
+      - https://discord.com/api/webhooks/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
