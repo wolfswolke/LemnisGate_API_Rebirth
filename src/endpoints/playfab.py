@@ -105,7 +105,12 @@ def get_title_data():
     ProgressionData = "{\"elo_exponentMultiplier\":400,\"elo_maxChange\":20,\"elo_validChangeToLoseRank\":5,\"xPWeights\":{\"kills\":50,\"damage\":0.1,\"objectives\":100,\"win\":500,\"loss\":400,\"draw\":450},\"baseXPperLevel\":4000,\"xPperLevelIncrement\":0,\"rankedLevelRestriction\":3}"
     GameplayTuningData = "{\"globalSprintSpeedAddition\":25,\"globalSlideFactor\":1,\"slideJumpHeightAddition\":100,\"regularJumpHeightAddition\":50,\"jumpSpeedImpulseSprintTimeRangeMin\":0.3,\"jumpSpeedImpulseSprintTimeRangeMax\":1,\"jumpSpeedImpulseScale\":100,\"bunnyHoppingFriction\":0.3,\"extendedHitSphereRadius\":80}",
     ServerVersion_PROD = "1.3.26342:A",
+    ServerVersion_DEV = "1.4.26563:A",
     ServerVersion_PROD_prev = "1.2.25717:B"
+    ServerVersion_DEV_prev = "1.4.26562:B"
+    ServerVersion_QA = "1.4.26554:A",
+    ServerVersion_QA_prev = "1.4.26441:B"
+    ServerVersion_PBE =  "1.0.23341:B"
     for key in data_keys:
         if key == "ProgressionData":
             ret_data["data"]["Data"]["ProgressionData"] = ProgressionData
@@ -115,6 +120,16 @@ def get_title_data():
             ret_data["data"]["Data"]["ServerVersion_PROD"] = ServerVersion_PROD
         elif key == "ServerVersion_PROD_prev":
             ret_data["data"]["Data"]["ServerVersion_PROD_prev"] = ServerVersion_PROD_prev
+        elif key == "ServerVersion_DEV":
+            ret_data["data"]["Data"]["ServerVersion_DEV"] = ServerVersion_DEV
+        elif key == "ServerVersion_DEV_prev":
+            ret_data["data"]["Data"]["ServerVersion_DEV_prev"] = ServerVersion_DEV_prev
+        elif key == "ServerVersion_QA":
+            ret_data["data"]["Data"]["ServerVersion_QA"] = ServerVersion_QA
+        elif key == "ServerVersion_QA_prev":
+            ret_data["data"]["Data"]["ServerVersion_QA_prev"] = ServerVersion_QA_prev
+        elif key == "ServerVersion_PBE":
+            ret_data["data"]["Data"]["ServerVersion_PBE"] = ServerVersion_PBE
         else:
             logger.graylog_logger(level="error", handler="get_title_data", message=f"Key {key} not found")
     return jsonify(ret_data), 200
@@ -147,6 +162,28 @@ def update_user_title_display_name():
 
 @app.route('/Client/UpdatePlayerStatistics', methods=['POST'])
 def update_player_statistics():
+    # IF Dev ->
+    # {
+    #     "StatisticNames": [
+    #         "elo_DEV",
+    #         "elo2v2_DEV",
+    #         "level_DEV",
+    #         "rank_DEV",
+    #         "rank2v2_DEV",
+    #         "headShots_DEV",
+    #         "kills_DEV",
+    #         "deaths_DEV",
+    #         "damage_DEV",
+    #         "objectivesCaptured_DEV",
+    #         "objectivesDestroyed_DEV",
+    #         "flagsCaptured_DEV",
+    #         "wins_DEV",
+    #         "losses_DEV",
+    #         "kill/death ratio_DEV",
+    #         "win/loss ratio_DEV"
+    #     ]
+    # }
+
     data = request.json
     sdk = request.args.get('sdk')
     header_x_authentication = request.headers.get('X-Authorization')
